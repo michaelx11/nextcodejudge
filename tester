@@ -20,10 +20,10 @@ then
 elif [[ $1 == *.java ]]
 then
     javac $1
-    if [[ ! -e $1.class ]]
+    if [[ ! -e $name.class ]]
     then
-        javac $1 &> $1.class
-        cat $1.class
+        javac $1 &> $name.class
+        cat $name.class
     fi
     cat $2 | java $name > $3
 elif [[ $1 == *.py ]]
