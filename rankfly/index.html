@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title>2013 Aquarium Trip Puzzle Hunt</title>
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<link href='http://fonts.googleapis.com/css?family=Pathway+Gothic+One' rel='stylesheet' type='text/css'>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src='https://cdn.firebase.com/v0/firebase.js'></script>
+		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<div class="cover">
+			Type in two contestants, and hit ENTER to begin.
+			<p>
+			<input type="text" class="leftentry" />
+			<input type="text" class="rightentry" />
+			</p>
+		</div>
+		<div class="header">
+			<h1>
+				Next Code Challenge
+			</h1>
+			<h2>
+				September 12, 2013 HEAD-to-HEAD&trade;
+			</h2>
+		</div>
+		<div class="content">
+			<div class="middlebar"></div>
+			<div class="startcircle">start</div>
+			<div class="onecircle timecircle">1:00</div>
+			<div class="twocircle timecircle">2:00</div>
+			<div class="threecircle timecircle">3:00</div>
+			<div class="fourcircle timecircle">4:00</div>
+			<div class="leftname nameblock">
+				<span class="timer timerleft">0:00</span>
+				<span class="leftcontextname">simple</span>
+			</div>
+			<div class="rightname nameblock">
+				<span class="timer timerright">0:00</span>
+				<span class="rightcontextname">mplcr</span>
+			</div>
+		</div>
+		
+		<!-- store this seperate copy so we can duplicate easier -->
+		<div class="store" style="display: none">
+			<div class="leftname nameblock">
+				<span class="timer timerleft">0:00</span>
+				<span class="leftcontextname"></span>
+			</div>
+			<div class="rightname nameblock">
+				<span class="timer timerright">0:00</span>
+				<span class="rightcontextname"></span>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>
