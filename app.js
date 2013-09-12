@@ -7,6 +7,7 @@ var express = require('express');
 var routes = require('./routes');
 var judge = require('./routes/judge');
 var user = require('./routes/user');
+var editor = require('./routes/editor');
 var http = require('http');
 var path = require('path');
 
@@ -33,6 +34,7 @@ app.get('/', routes.index);
 app.get('/startgame', judge.startGame);
 app.get('/checkprogram.json', judge.checkProgram);
 app.get('/users', user.list);
+app.get('/editor', editor.editor);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
