@@ -14,16 +14,18 @@
 			<h1>Code Editor</h1>
 			<h2>September 12, 2013 HEAD-to-HEAD&trade;</h2>
 		</div>
-		<div class="content">
-                    <div id="editor"></div>
-		</div>
-                <div id="submitBtn" class="large button expand" type="submit" onclick="onclickFunction();">Submit Code</div>
                 <div id="languageSelect">
                     <ul class="button-group">
                         <li><a href="#" class="button" onclick="switchLanguage('java');">Java</a></li>
                         <li><a href="#" class="button" onclick="switchLanguage('cpp');">C++</a></li>
                         <li><a href="#" class="button" onclick="switchLanguage('python');">Python</a></li>
                     </ul>
+                </div>
+		<div id="content">
+                    <div id="editor"></div>
+		</div>
+                <div id="submitBtn">
+                    <a href="#" class="large button expand" onclick="onclickFunction();">Submit Code</a>
                 </div>
 	</body>
 </html>
