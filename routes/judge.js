@@ -8,15 +8,20 @@ var root = new Firebase('https://nextchallenge.firebaseIO.com');
 var problemID = 0;
 var fileID = 0;
 
-exports.startGame = function startGame(req, res) {
-    root.child('p1').set('running');
-    root.child('p2').set('running');
-    exec('cat problems/prob' + problemID++,
-            function(error, stdout, stderr) {
-                root.child('problem').set(stdout);
-            }
-        );
-}
+setInterval(function startGame(req, res) {
+    root.child('started').once('value', function(snapshot) {
+        if (snapshot.val() == 'true') {
+            root.child('started').set('false');
+            root.child('p1').set('running');
+            root.child('p2').set('running');
+            exec('cat problems/prob' + problemID++,
+                function(error, stdout, stderr) {
+                    root.child('problem').set(stdout);
+                }
+                );
+        }
+    });
+}, 1000);
 
 exports.checkProgram = function checkProgram(req, res) {
     var child = req.query.player == 1 ? 'p1' : 'p2';

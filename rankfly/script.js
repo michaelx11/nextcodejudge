@@ -49,8 +49,7 @@ $(document).ready(function(){
 	   			timer = setInterval(frameAnimate, 100);	
 	   			$('.cover').hide();
 	   			stage = 'RUNNING';
-	   			data.child('p1').set('running');
-	   			data.child('p2').set('running');
+                                data.child('started').set('true');
 	   		}
 	   	}
 	   	

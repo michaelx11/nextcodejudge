@@ -31,7 +31,6 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/startgame', judge.startGame);
 app.get('/checkprogram.json', judge.checkProgram);
 app.get('/users', user.list);
 app.get('/editor', editor.editor);
