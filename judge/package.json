@@ -1,0 +1,40 @@
+{
+  "name": "nextcodejudge",
+  "version": "0.0.1",
+  "private": "true",
+  "description": "code on, for glory",
+  "keywords": [
+    "NextCode"
+  ],
+  "contributors": [
+    "Kevin Y Chen <kyc2915@mit.edu>",
+    "Tommy Zhang <trzhang@mit.edu>",
+    "Michael Xu <michaelx@mit.edu>",
+    "Victor Hung <vhung@mit.edu>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michaelx/nextcodejudge.git"
+  },
+  "engines": {
+    "node": "0.8.16",
+    "npm": "1.1.59"
+  },
+  "dependencies": {
+    "express": "3.x",
+    "jade": "*",
+    "stylus": "*",
+    "nib": "*",
+    "handlebars": "1.0.6",
+    "consolidate": "0.3.x",
+    "path": "0.4.9",
+    "socket.io": "0.9.13",
+    "firebase": "*"
+  },
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "app.js"
+  },
+  "subdomain": "nextcodejudge"
+}
