@@ -13,113 +13,32 @@ h2 {
 	margin-top: 6px;
 	font-size: 16px;
 }
-.cover {
-	height: 70px;
-	position: fixed;
-	bottom: 0px;
-	background-color: #333;
-	z-index: 69;
-	padding: 10px;
-	width: 100%;
-	text-align: center;
-	color: #ccc;
-	font-weight: 300;
+
+#editor {
+    border-style: solid;
+    border-width: 5px;
+    border-color: #434343;
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    bottom: 0;
+    left: 5%;
+    height: 75%;
+    width: 45%;
 }
 
-input {
-	width: 150px;
-	margin: 10px;
-	background-color: #fff;
-	border: none;
-	padding: 6px;
-	outline: none;
+#languageSelect {
+    position: absolute;
+    top:9%;
+    left:20%;
+    width: 20%;
+    height: 3%;
 }
 
-.content {
-	position: fixed;
-	top: 100px;
-	left: 0px;
-	height: -webkit-calc(100% - 130px);
-	width: 100%;
-}
-.middlebar {
-	background-color: #eee;
-	top: 10px;
-	position: absolute;
-	margin: 0 auto;
-	left: -webkit-calc(50% - 10px);
-	height: 100%;
-	width: 20px;
-}
-.startcircle {
-	background-color: #fff;
-	border-radius: 40px;
-	border: 5px solid #eee;
-	padding: 10px;
-	width: 50px;
-	font-size: 18px;
-	color: #333;
-	position: absolute;
-	left: -webkit-calc(50% - 40px);
-	text-align: center;
-}
-.timecircle {
-	background-color: #fff;
-	border-radius: 40px;
-	border: 5px solid #eee;
-	padding: 10px;
-	width: 30px;
-	font-size: 14px;
-	color: #333;
-	position: absolute;
-	left: -webkit-calc(50% - 30px);
-	text-align: center;
-}
-.onecircle {
-	top: 100px;
-}
-.twocircle {
-	top: 200px;
-}
-.threecircle {
-	top: 300px;
-}
-.fourcircle {
-	top: 400px;
-}
-.nameblock {
-	padding: 10px;
-	width: 180px;
-	color: #fff;
-	position: absolute;
-	top: 6px;
-	border-radius: 3px;
-}
-.settle {
-	background-color: #000;
-	opacity: 0.2;
-}
-.settleleft {
-	text-align: right;
-}
-.settleright {
-	text-align: left;
-}
-.leftname {
-	background-color: #FFB95E;
-	left: -webkit-calc(50% - 100px - 160px);
-	text-align: right;
-}
-.rightname {
-	background-color: #54B6F7;
-	left: -webkit-calc(50% - 100px + 160px);
-}
-.timer {
-	color: #fff;
-	float: left;
-	opacity: 0.8;
-	font-weight: 300;
-}
-.timerright {
-	float: right;
+#submitBtn {
+    position: absolute;
+    bottom:5%;
+    left:22%;
+    width: 10%;
+    height: 4%;
 }

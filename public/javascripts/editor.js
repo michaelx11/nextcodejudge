@@ -1,0 +1,37 @@
+var currentLanguage = "java";
+var editor;
+
+var javaTemplate = "import java.util.*\nimport java.io.*;\n\npublic class Main {\n\npublic static void main (String[] args) throws IOException {\n//your code here\n}\n}";
+var cppTemplate = "#include <stdio.h>\n#include <stdlib.h>\n#include <iostream>\n#include <math.h>\n#include <string.h>\n#include <algorithm>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n\n//your code here\n\n}";
+var pythonTemplate = "//no boilerplate, your code goes here";
+
+$(document).ready(function() {
+    // ace-editor
+    editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    switchLanguage('java');
+    document.getElementById('editor').style.fontSize = '14px';
+});
+
+onclickFunction = function() {
+    $.getJSON('/checkprogram.json', {
+        'program': editor.getSession().getValue(),
+        'problem': 0,
+        'extension': '.py',
+        'player': 1
+    });
+}
+
+switchLanguage = function(language) {
+    if (language == 'java') {
+        editor.setValue(javaTemplate);
+        editor.getSession().setMode("ace/mode/java");
+    } else if (language == 'cpp') {
+        editor.setValue(cppTemplate);
+        editor.getSession().setMode("ace/mode/c_cpp");
+    } else {
+        editor.setValue(pythonTemplate);
+        editor.getSession().setMode("ace/mode/python");
+    }
+    currentLanguage = language;
+}

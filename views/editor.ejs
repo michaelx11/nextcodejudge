@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>NextCode Challenge</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/foundation.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+		<link href='http://fonts.googleapis.com/css?family=Pathway+Gothic+One' rel='stylesheet' type='text/css'>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="javascripts/ace-build/src-noconflict/ace.js"></script>
+                <script src="javascripts/editor.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<div class="header">
+			<h1>Code Editor</h1>
+			<h2>September 12, 2013 HEAD-to-HEAD&trade;</h2>
+		</div>
+		<div class="content">
+                    <div id="editor"></div>
+		</div>
+                <div id="submitBtn" class="large button expand" type="submit" onclick="onclickFunction();">Submit Code</div>
+                <div id="languageSelect">
+                    <ul class="button-group">
+                        <li><a href="#" class="button" onclick="switchLanguage('java');">Java</a></li>
+                        <li><a href="#" class="button" onclick="switchLanguage('cpp');">C++</a></li>
+                        <li><a href="#" class="button" onclick="switchLanguage('python');">Python</a></li>
+                    </ul>
+                </div>
+	</body>
+</html>
+
