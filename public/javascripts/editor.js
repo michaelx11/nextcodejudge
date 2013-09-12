@@ -16,7 +16,7 @@ $(document).ready(function() {
     // firebase
     var root = new Firebase('https://nextchallenge.firebaseio.com/');
     root.child('problem').on('value', function(snapshot) {
-        $('#problem_statement').text(snapshot.val())
+        $('#problem_statement').html(snapshot.val().replace(new RegExp('\n', 'g'), '<br//>'));
     });
 });
 
