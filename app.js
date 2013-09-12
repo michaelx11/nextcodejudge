@@ -30,7 +30,8 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/judge', judge.checkProgram);
+app.get('/startgame', judge.startGame);
+app.get('/checkprogram.json', judge.checkProgram);
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
