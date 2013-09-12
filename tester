@@ -19,13 +19,14 @@ then
     cat $2 | ./$name.out > $3
 elif [[ $1 == *.java ]]
 then
-    javac $1
-    if [[ ! -e $name.class ]]
+    cat $1 > Main.java
+    javac Main.java
+    if [[ ! -e Main.class ]]
     then
-        javac $1 &> $name.class
-        cat $name.class
+        javac $1 &> Main.class
+        cat $Main.class
     fi
-    cat $2 | java $name > $3
+    cat $2 | java Main > $3
 elif [[ $1 == *.py ]]
 then
     cat $2 | python $1 > $3
