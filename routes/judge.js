@@ -42,7 +42,7 @@ exports.checkProgram = function checkProgram(req, res) {
                 console.log('diff: ' + stdout);
                 if (error || stdout) {
                     root.child(child).set('error');
-                    res.json({'result': 'fail'});
+                    res.json({'result': 'fail: ' + stdout});
                 } else {
                     root.child(child).set('done');
                     res.json({'result': 'pass'});

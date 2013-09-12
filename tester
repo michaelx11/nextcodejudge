@@ -11,10 +11,20 @@ name=${program%.*}
 if [[ $1 == *.cpp ]]
 then
     g++ $1 -o $name.out
+    if [[ ! -e $name.out ]]
+    then
+        g++ $1 &> $name.out
+        cat $name.out
+    fi
     cat $2 | ./$name.out > $3
 elif [[ $1 == *.java ]]
 then
     javac $1
+    if [[ ! -e $1.class ]]
+    then
+        javac $1 &> $1.class
+        cat $1.class
+    fi
     cat $2 | java $name > $3
 elif [[ $1 == *.py ]]
 then
@@ -22,7 +32,7 @@ then
 else
     cat $1 > $3
 fi
-if ! diff $3 $4 > /dev/null
+if ! diff --ignore-all-space $3 $4 > /dev/null
 then
-    echo `diff $3 $4`
+    echo 'wrong output!'
 fi
