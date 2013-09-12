@@ -12,6 +12,12 @@ $(document).ready(function() {
     editor.setValue(javaString);
     editor.getSession().setMode("ace/mode/java");
     document.getElementById('editor').style.fontSize = '14px';
+
+    // firebase
+    var root = new Firebase('https://nextchallenge.firebaseio.com/');
+    root.child('problem').on('value', function(snapshot) {
+        $('#problem_statement').text(snapshot.val())
+    });
 });
 
 onclickFunction = function() {
