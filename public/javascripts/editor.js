@@ -23,9 +23,10 @@ $(document).ready(function() {
 onclickFunction = function() {
     $.getJSON('/checkprogram.json', {
         'program': editor.getSession().getValue(),
-        'problem': 0,
-        'extension': '.py',
-        'player': 1
+        'extension': '.' + currentLanguage,
+        'player': player
+    }, function(data) {
+        alert(data['result']);
     });
 }
 

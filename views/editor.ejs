@@ -8,6 +8,7 @@
 		<script src='https://cdn.firebase.com/v0/firebase.js'></script>
 		<script src="javascripts/ace-build/src-noconflict/ace.js"></script>
                 <script src="javascripts/editor.js"></script>
+                <script>player = <%= player %>;</script>
 		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
@@ -22,7 +23,7 @@
                     <ul class="button-group">
                         <li><a href="#" class="button" onclick="switchLanguage('java');">Java</a></li>
                         <li><a href="#" class="button" onclick="switchLanguage('cpp');">C++</a></li>
-                        <li><a href="#" class="button" onclick="switchLanguage('python');">Python</a></li>
+                        <li><a href="#" class="button" onclick="switchLanguage('py');">Python</a></li>
                     </ul>
                 </div>
 		<div id="content">
