@@ -21,27 +21,23 @@ exports.startGame = function startGame(req, res) {
 exports.checkProgram = function checkProgram(req, res) {
     var child = req.query.player == 1 ? 'p1' : 'p2';
 
-    // Run program. (Only python for now)
-    var program = "tmp/prob" + fileID;
+    // Run program.
+    var extension = req.query.extension;
+    var program = "tmp/prob" + fileID + extension;
+    var input = "inputs/prob" + req.query.problem;
     var output = "tmp/out" + fileID;
     var expected = "expected/out" + req.query.problem;
     fileID++;
     fs.writeFile(program, req.query.program);
-    //exec('python ' + program + ' > ' + output);
-    // TODO just copy for now
-    exec('cat ' + program + ' > ' + output,
+    exec('./tester ' + program + ' ' + input + ' ' + output + ' ' + expected,
+            {timeout: 1000},
             function(error, stdout, stderr) {
-                // TODO change diff to arbitrary 'test' command
-                exec('diff ' + output + ' ' + expected,
-                    function(error, stdout, stderr) {
-                        console.log('diff: ' + stdout);
-                        if (error || stdout) {
-                            root.child(child).set('error');
-                        } else {
-                            root.child(child).set('done');
-                        }
-                    }
-                    );
+                console.log('diff: ' + stdout);
+                if (error || stdout) {
+                    root.child(child).set('error');
+                } else {
+                    root.child(child).set('done');
+                }
             }
         );
 }

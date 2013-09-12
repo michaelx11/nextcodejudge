@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# $1 is program file
+# $2 is input file
+# $3 is program output file
+# $4 is expected output file
+
+program=$1
+name=${program%.*}
+
+if [[ $1 == *.cpp ]]
+then
+    g++ $1 -o $name.out
+    cat $2 | ./$name.out > $3
+elif [[ $1 == *.java ]]
+then
+    javac $1
+    cat $2 | java $name > $3
+elif [[ $1 == *.py ]]
+then
+    cat $2 | python $1 > $3
+else
+    cat $1 > $3
+fi
+if ! diff $3 $4 > blah
+then
+    echo `diff $3 $4`
+fi
