@@ -26,9 +26,7 @@
     "stylus": "*",
     "nib": "*",
     "handlebars": "1.0.6",
-    "consolidate": "0.3.x",
     "path": "0.4.9",
-    "socket.io": "0.9.13",
     "firebase": "*"
   },
   "main": "index.js",

@@ -2,13 +2,19 @@
 html(lang='en')
     head
         title ACE in Action
+        link(rel='stylesheet' type='text/css' href='stylesheets/main.css').
+        link(href='http://fonts.googleapis.com/css?family=Pathway+Gothic+One' rel='stylesheet' type='text/css').
+        script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js').
+        link(href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css').
         style(type='text/css', media='screen').
             #editor {
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 50px;
+            right: 50px;
             bottom: 0;
-            left: 0;
+            left: 50px;
+            height: 700px;
+            width: 900px;
             }
     body
         #editor
@@ -21,5 +27,15 @@ html(lang='en')
             var editor = ace.edit("editor");
             editor.setTheme("ace/theme/monokai");
             editor.getSession().setMode("ace/mode/javascript");
+        script.
+            onclickFunction = function() {
+                $.getJSON('/checkprogram.json',
+                { 'program': editor.getSession().getValue(),
+                  'problem': 0,
+                  'extension': '.py',
+                  'player': 1
+                });
+            }
+        button(type="button" style='width: 25px; height: 25px;' value="Submit Code" onclick="onclickFunction();").
 
 
