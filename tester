@@ -22,7 +22,7 @@ then
 else
     cat $1 > $3
 fi
-if ! diff $3 $4 > blah
+if ! diff $3 $4 > /dev/null
 then
     echo `diff $3 $4`
 fi
