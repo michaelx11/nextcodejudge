@@ -23,8 +23,8 @@ then
     javac Main.java
     if [[ ! -e Main.class ]]
     then
-        javac $1 &> Main.class
-        cat $Main.class
+        javac Main.java &> Main.class
+        cat Main.class
     fi
     cat $2 | java Main > $3
 elif [[ $1 == *.py ]]
