@@ -4,16 +4,20 @@ var fs = require('fs');
 var exec = require('child_process').exec;
 var Firebase = require('firebase');
 
-var root = new Firebase('https://nextchallenge.firebaseIO.com');
+var root = new Firebase('https://kyc.firebaseIO.com/nextchallenge');
 var problemID = -1;
 var fileID = -1;
 
 root.child('started').on('value', function(snapshot) {
-    if (snapshot.val() == 'true') {
+    if (snapshot.val() != 'false') {
+        if (snapshot.val() == 'true') {
+            problemID++;
+        } else {
+            problemID = snapshot.val();
+        }
         root.child('started').set('false');
         root.child('p1').set('running');
         root.child('p2').set('running');
-        problemID++;
         console.log("starting problem " + problemID);
         exec('cat problems/prob' + problemID,
             function(error, stdout, stderr) {
@@ -24,7 +28,7 @@ root.child('started').on('value', function(snapshot) {
 });
 
 exports.checkProgram = function checkProgram(req, res) {
-    var child = req.query.player == 1 ? 'p1' : 'p2';
+    var child = req.query.player != 2 ? 'p1' : 'p2';
 
     // Run program.
     var extension = req.query.extension;
@@ -34,7 +38,7 @@ exports.checkProgram = function checkProgram(req, res) {
     var output = "tmp/out" + fileID;
     var expected = "expected/out" + problemID;
     console.log('writing ' + fileID);
-    fs.writeFile(program, req.query.program);
+    fs.writeFileSync(program, req.query.program);
     console.log(program + " " + input + " " + output + " " + expected);
     exec('./tester ' + program + ' ' + input + ' ' + output + ' ' + expected,
             {timeout: 1000},

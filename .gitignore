@@ -38,3 +38,9 @@ npm-debug.log
 # Text editor temp files
 *.swp
 *~
+
+# Temporary directories
+tmp/*
+problems/*
+inputs/*
+expected/*

@@ -11,29 +11,44 @@ name=${program%.*}
 if [[ $1 == *.cpp ]]
 then
     g++ $1 -o $name.out
-    if [[ ! -e $name.out ]]
+    if [[ $? -ne 0 ]]
     then
-        g++ $1 &> $name.out
-        cat $name.out
+        echo 'Compilation error'
+        exit
     fi
     cat $2 | ./$name.out > $3
+    if [[ $? -ne 0 ]]
+    then
+        echo 'Runtime error'
+        exit
+    fi
 elif [[ $1 == *.java ]]
 then
     cat $1 > Main.java
     javac Main.java
-    if [[ ! -e Main.class ]]
+    if [[ $? -ne 0 ]]
     then
-        javac Main.java &> Main.class
-        cat Main.class
+        echo 'Compilation error'
+        exit
     fi
     cat $2 | java Main > $3
+    if [[ $? -ne 0 ]]
+    then
+        echo 'Runtime error'
+        exit
+    fi
 elif [[ $1 == *.py ]]
 then
     cat $2 | python $1 > $3
+    if [[ $? -ne 0 ]]
+    then
+        echo 'Syntax/Runtime error'
+        exit
+    fi
 else
     cat $1 > $3
 fi
 if ! diff --ignore-all-space $3 $4 > /dev/null
 then
-    echo 'wrong output!'
+    echo 'Wrong output!'
 fi

@@ -14,7 +14,7 @@ $(document).ready(function() {
     document.getElementById('editor').style.fontSize = '14px';
 
     // firebase
-    var root = new Firebase('https://nextchallenge.firebaseio.com/');
+    var root = new Firebase('https://kyc.firebaseio.com/nextchallenge');
     root.child('problem').on('value', function(snapshot) {
         $('#problem_statement').html(snapshot.val().replace(new RegExp('\n', 'g'), '<br//>'));
     });

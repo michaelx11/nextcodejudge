@@ -5,7 +5,7 @@ $(document).ready(function(){
 	var leftdone = true;
 	var stage = 'WAITING_ENTER';
 	var timer;
-	var data = new Firebase('https://nextchallenge.firebaseio.com/');
+	var data = new Firebase('https://kyc.firebaseio.com/nextchallenge');
 	
 	data.on('value', function(snapshot) {
 		obj = snapshot.val();
